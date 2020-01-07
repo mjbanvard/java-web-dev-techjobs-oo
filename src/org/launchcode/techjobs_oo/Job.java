@@ -24,6 +24,7 @@ public class Job {
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
+        this.id = id;
         this.name = name;
         this.employer = employer;
         this.location = location;
@@ -94,5 +95,32 @@ public class Job {
 
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
+    }
+
+    public String toString() {
+        String output;
+        String emptyObject;
+        emptyObject = (/* " \n" +
+                    "ID: " + id + System.lineSeparator() + */
+                    "OOPS! This job does not seem to exist.");
+
+        String printName = name==null ? "Data not available" : name.toString();
+        String printEmployer = employer==null ? "Data not available" : employer.toString();
+        String printLocation = location==null ? "Data not available" : location.toString();
+        String printPositionType = positionType==null ? "Data not available" : positionType.toString();
+        String printSkill = coreCompetency==null ? "Data not available" : coreCompetency.toString();
+        if (name==null && employer==null && location==null && positionType==null && coreCompetency==null) {
+            return emptyObject;
+        } else {
+            output = " \n" +
+                    "ID: " + id + System.lineSeparator() +
+                    "Name: " + printName + System.lineSeparator() +
+                    "Employer: " + printEmployer + System.lineSeparator() +
+                    "Location: " + printLocation + System.lineSeparator() +
+                    "Position Type: " + printPositionType + System.lineSeparator() +
+                    "Core Competency: " + printSkill + System.lineSeparator() +
+                    " ";
+            return output;
+        }
     }
 }
